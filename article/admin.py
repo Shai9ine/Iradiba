@@ -4,7 +4,7 @@ from .models import Article
 
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "date", "is_verified", "is_active"]
+    list_display = ["__str__", "date_created", "last_updated", "is_verified", "is_active"]
     list_editable = ["is_verified", "is_active"]
 
     class Meta:
