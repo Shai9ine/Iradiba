@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -6,7 +8,8 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=100)
     poster = models.ImageField(upload_to='articles/')
-    text = models.TextField()
+    body = RichTextUploadingField(null=True, blank=True)
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     is_verified = models.BooleanField(default=False)

@@ -1,4 +1,12 @@
 from django.shortcuts import render
-# hi
+from article.models import Article
+
+
 def main_page(request):
-  return render(request, 'pages/main_page.html')
+    articles = Article.objects.all()
+    article = articles.first()
+    context = {
+        'articles': articles,
+        'article': article
+    }
+    return render(request, 'pages/main_page.html', context=context)

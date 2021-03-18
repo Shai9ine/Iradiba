@@ -20,5 +20,6 @@ import pages
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
-    path('', include('account.urls'))
+    path('', include('account.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
