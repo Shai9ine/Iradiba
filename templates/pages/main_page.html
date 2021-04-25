@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    Iradiba Magazine
+{% endblock %}
 {% block content %}
 
     <body>
@@ -10,10 +13,10 @@
         <div class="hero-slides owl-carousel">
             <!-- Single Slide -->
             <div class="single-hero-slide bg-img background-overlay"
-                 style="background-image: url(static/img/blog-img/bg2.jpg);"></div>
+                 style="background-image: url({% static "img/blog-img/bg2.jpg" %});"></div>
             <!-- Single Slide -->
             <div class="single-hero-slide bg-img background-overlay"
-                 style="background-image: url(static/img/blog-img/bg1.jpg);"></div>
+                 style="background-image: url({% static "img/blog-img/bg1.jpg" %});"></div>
         </div>
 
         <!-- Hero Post Slide -->
@@ -144,13 +147,11 @@
                                                             <a href="#" class="headline">
                                                                 <h5>{{ article.title }}</h5>
                                                             </a>
-                                                            <p>How Did van Gogh’s Turbulent Mind Depict One of the Most
-                                                                Complex Concepts in...</p>
+                                                            <p>{{ article.description }}</p>
                                                             <!-- Post Meta -->
                                                             <div class="post-meta">
-                                                                <p><a href="#" class="post-author">Katy Liu</a> on <a
-                                                                        href="#" class="post-date">Sep 29, 2017 at 9:48
-                                                                    am</a></p>
+                                                                <p><a href="#" class="post-author">{{ article.author }}</a> on <a
+                                                                        href="#" class="post-date">{{ article.date_created }}</a></p>
                                                             </div>
                                                         </div>
                                                     </div>

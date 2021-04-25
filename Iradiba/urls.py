@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
-import pages
+from django.conf.urls.static import static
+from Iradiba import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +24,7 @@ urlpatterns = [
     path('', include('account.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
